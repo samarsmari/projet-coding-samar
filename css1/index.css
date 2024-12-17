@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@200;300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans", sans-serif;
+}
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100%;
+    padding: 0 10px;
+  }
+  
+  body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url("https://www.codingnepalweb.com/demos/create-glassmorphism-login-form-html-css/hero-bg.jpg"), #000;
+    background-position: center;
+    background-size: cover;
+  }
+
+.container {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    background-color: #162447;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.left {
+    flex: 1;
+    background: url('../images/ins.webp' ) no-repeat center center  ;
+  
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 20px;
+}
+
+
+.left h1 {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 600px;
+    color: #3b5998;
+}
+
+.right {
+    flex: 1;
+    padding: 40px;
+    background-color: #0f3460;
+    color: rgb(233, 225, 225);
+}
+
+.right h2 {
+    margin-bottom: 20px;
+    color: #e94560;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+.form-group input[type="checkbox"] {
+    width: auto;
+}
+
+.form-group.terms {
+    display: flex;
+    align-items: center;
+}
+
+.form-group.terms label {
+    margin-left: 10px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #e94560;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #d83a56;
+}
+
+.social-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.social-buttons button {
+    flex: 1;
+    margin: 0 5px;
+    padding: 10px;
+    background-color: #3b5998;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+.social-buttons button.twitter {
+    background-color: #1da1f2;
+}
+.navbar{
+    text-align:center;
+}

@@ -1,0 +1,244 @@
+:root {
+    --primary-color: #ff6f61; 
+    --secondary-color: #ffcc00; 
+    --background-color: #1e1e2f;
+    --text-color: #ffffff;
+    --button-hover-color: #ff8e72; 
+    --button-active-color: #ffd54f; 
+    --shadow-color: rgba(0, 0, 0, 0.3);
+    --gradient-light: linear-gradient(135deg, #ff6f61, #ffcc00);
+    --gradient-dark: linear-gradient(135deg, #6f61ff, #61ff6f);
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: var(--background-color);
+    background-image: radial-gradient(circle, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 1));
+    overflow: hidden;
+    color: var(--text-color);
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background: radial-gradient(circle, #ff6f61, #ffcc00, #6f61ff, #61ff6f);
+    background-size: 400% 400%;
+    z-index: -1;
+    animation: backgroundGlow 15s infinite;
+    opacity: 0.2;
+}
+
+@keyframes backgroundGlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+#quiz-container {
+    background: var(--gradient-dark);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 20px 30px var(--shadow-color), 0 0 20px #fff inset;
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+}
+
+#quiz-container:hover {
+    transform: translateY(-15px) scale(1.05);
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 255, 255, 0.7);
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-size: 3em;
+    background: var(--gradient-light);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 0 15px #fff;
+    animation: glowingText 2s infinite;
+}
+
+@keyframes glowingText {
+    0%, 100% {
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 0 20px #ff6f61, 0 0 30px #ffcc00;
+    }
+    50% {
+        text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 0 25px #6f61ff, 0 0 40px #61ff6f;
+    }
+}
+
+.quiz-question {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 2s;
+}
+
+label {
+    display: block;
+    background: rgba(255, 255, 255, 0.15);
+    margin: 10px 0;
+    padding: 14px;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2), 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+label:hover {
+    background: var(--gradient-light);
+    color: #000;
+    transform: translateX(20px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 255, 255, 0.8);
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+button {
+    background: var(--gradient-light);
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-top: 20px;
+    transition: all 0.5s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+button:hover {
+    background: var(--gradient-dark);
+    transform: translateY(-10px) scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 255, 255, 0.7);
+}
+
+button:active {
+    transform: translateY(0) scale(0.95);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #000;
+  
+}
+
+#result.show {
+    opacity: 1;
+    transform: translateY(0);
+    color: #000;
+}
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    padding: 0 10px;
+}
+
+.navbar {
+    display: flex;
+    padding: 22px 0;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: space-between;
+}
+
+.navbar .hamburger-btn {
+    display: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.navbar .logo {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.navbar .logo img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+.navbar .logo h2 {
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.7rem;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    align-items: center;
+}
+
+.navbar .close-btn {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.navbar .links a {
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: 0.1s ease;
+}
+
+.navbar .links a:hover {
+    color: #19e8ff;
+}
+
+.navbar .login-btn {
+    border: none;
+    outline: none;
+    background: #fff;
+    color: #275360;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 10px 18px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.15s ease;
+}
+
+.navbar .login-btn:hover {
+    background: #ddd;
+}
